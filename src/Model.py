@@ -3,7 +3,7 @@ from pathlib import Path
 import joblib
 import matplotlib.pyplot as plt
 import pandas as pd
-from sklearn.ensemble import HistGradientBoostingClassifier, RandomForestClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     ConfusionMatrixDisplay,
@@ -44,13 +44,6 @@ def build_models() -> dict[str, object]:
             class_weight="balanced",
             random_state=RANDOM_STATE,
             n_jobs=-1,
-        ),
-        "hist_gradient_boosting": HistGradientBoostingClassifier(
-            learning_rate=0.06,
-            max_iter=250,
-            max_leaf_nodes=31,
-            l2_regularization=0.1,
-            random_state=RANDOM_STATE,
         ),
     }
 
